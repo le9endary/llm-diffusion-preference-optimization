@@ -1,4 +1,4 @@
-# Preference Optimization for Language Diffusion Models
+# LLaDA-DPO: Preference Optimization for Language Diffusion Models
 
 Traditional preference optimization methods like DPO face computational challenges when applied to diffusion language models due to the intractable nature of computing exact log probabilities. This implementation provides a practical solution using Monte Carlo estimation with Evidence Lower Bound (ELBO) approximation.
 
@@ -34,6 +34,21 @@ Traditional preference optimization methods like DPO face computational challeng
 
 4. **Reference Model Freezing**: Reference model parameters are frozen to prevent drift during training.
 
+
+## Results 
+
+### DPO Results on LLaDA
+
+After 1 epoch of training on 1,024 samples (evaluated on 256 samples):
+
+| Model            | Win Rate | Loss Rate |
+|------------------|----------|-----------|
+| Reference Model  | 55.08%   | 44.92%    |
+| Fine-tuned Model | 58.98%   | 41.02%    |
+
+Fine-tuning with DPO improved the win rate by nearly 4 percentage points over the reference model.  
+
+
 ## Limitations and Future Work
 
 ### Current Limitations
@@ -60,7 +75,6 @@ Traditional preference optimization methods like DPO face computational challeng
 3. **Zhu, F., Wang, R., Nie, S., Zhang, X., & Wei, C.** (2025).
    LLaDA 1.5: Variance-reduced preference optimization for large language diffusion models. arXiv preprint arXiv:2505.19223
 
-_Note: The official code for VRPO (Variance-Reduced Preference Optimization) had not been released at the time of this implementation._
 
 ## Acknowledgments
 
